@@ -1,0 +1,33 @@
+CREATE TABLE cup_store (primary_key INTEGER, type TEXT, color TEXT, design TEXT, quanity INTEGER, price NUMERIC);
+
+INSERT INTO cup_store VALUES
+(1, "mug", "blue", "waves", 30, 7.99),
+(2, "mug", "pink", "cats", 25, 7.99),
+(3, "mug", "yellow", "single_color", 20, 6.99),
+(4, "mug", "blue", "single_color", 20, 6.99),
+(5, "travel_mug", "black", "single_color", 20, 12.99),
+(6, "travel_mug", "black", "cheetah_print", 15, 13.99),
+(7, "travel_mug", "pink", "single_color", 20, 12.99),
+(8, "travel_mug", "blue", "waves", 15, 13.99),
+(9, "travel_mug", "pink", "cats", 16, 13.99),
+(10, "plastic_cup", "yellow", "single_color", 25, 4.99),
+(11, "plastic_cup", "blue", "waves", 20, 5.99),
+(12, "plastic_cup", "black", "cheetah_print", 20, 5.99),
+(13, "plastic_cup", "black", "single_color", 25, 4.99),
+(14, "tumbler", "pink", "single_color", 15, 12.99),
+(15, "tumbler", "black", "single_color", 15, 12.99),
+(16, "tumbler", "blue", "single_color", 15, 12.99),
+(17, "tumbler", "blue", "waves", 20, 14.99),
+(18, "tumbler", "black", "cheetah", 20, 14.99);
+
+SELECT * FROM cup_store
+ORDER BY price DESC;
+
+SELECT COUNT(DISTINCT design) AS different_designs FROM cup_store WHERE design != "single_color";
+
+//I created a database of different cups and displayed them in order from highest to lowest price with the ORDER BY query.
+
+The data here proves that the higher priced items correlate with the specific designs in every
+type of cup unlike the single colored cups which correlate with the lower prices
+
+The COUNT query shows us that within every type of cup, there are only 4 designs that are not single colors.//
