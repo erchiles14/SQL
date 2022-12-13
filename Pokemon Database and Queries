@@ -1,0 +1,28 @@
+SELECT Type_1, COUNT(Type_1) AS Count FROM pokemon GROUP BY Type_1 ORDER BY Count DESC;
+
+    //By applying the previous query, the results show that the Type_1 labelled as "Water" was most frequnt
+    being a count of 112 pokemon with that main typing with normal following at 98 and next grass at 70.//
+
+SELECT Name FROM pokemon WHERE HP > 120 AND Legendary = "False" ORDER BY Name ASC;
+
+    //The query above results in a list of Pokemon that have an HP of more 120 without being Legendary.//
+
+SELECT COUNT(*) AS High_HP FROM pokemon WHERE HP > 120 AND Legendary = "False";
+
+    //Following the previous query, the COUNT query was able to count how many Pokemon met
+    the critera of having > 120 HP and a "False" Legendary status which resulted in 17 Pokemon
+   
+SELECT ROUND(AVG(HP), 2) FROM pokemon;
+
+    // This query simply produces the average HP rounded to the nearest hundredth in order to discover the results in the following query. The result was 69.26
+   
+SELECT Name, HP,
+CASE
+WHEN HP < 69.26 THEN "Weak"
+WHEN HP > 69.26 THEN "Strong"
+Else "Average"
+END AS "Strength"
+FROM pokemon
+ORDER BY HP DESC;
+
+// The above query produces the results of pokemon that are above, below, and at the average mark in order from highest to lowest HP
