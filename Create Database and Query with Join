@@ -1,0 +1,20 @@
+CREATE TABLE singers (name TEXT, spouse TEXT, age INTEGER, song TEXT);
+INSERT INTO singers
+VALUES ("Joe Jonas", "Sophie Turner", 33, "Cake By The Ocean"),
+("Justin Timberlake", "Jessica Biel",  41, "Can't Stop This Feeling"),
+("Lady Gaga", "Michael Polansky", 36, "Shallow");
+
+CREATE TABLE movie_stars (name TEXT, spouse TEXT, age INTEGER, movie TEXT);
+INSERT INTO movie_stars VALUES
+("John Krasinski", "Emily Blunt", 43, "A Quiet Place"),
+("Justin Timberlake", "Jessica Biel",  41, "Friends With Benefits"),
+("Jessica Biel", "Justin Tiberlake", 40, "Candy"),
+("Sophie Turner", "Joe Jonas", 26, "Dark Pheonix"), 
+("Emily Blunt", "John Krasinski", 39,"The Devil Wears Prada")
+;
+
+CREATE TABLE movies (title TEXT, lead_actor TEXT, lead_actress TEXT, song TEXT);
+INSERT INTO movies VALUES
+("Trolls", "Justin Timberlake", "Anna Kendrick", "Can't Stop This Feeling"),
+("Friends With Benefits", "Justin Timberlake", "Mila Kunis", "Closing Time"),
+("A Star Is Born", "Bradley Cooper", "Lady Gaga", "Shallow");
