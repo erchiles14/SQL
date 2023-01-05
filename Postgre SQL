@@ -1,0 +1,54 @@
+SELECT * FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" LIMIT 5;
+SELECT * FROM "CharlotteChaze/BreakIntoTech"."netflix_people" LIMIT 5;
+
+// Using Postgre SQL I queried everything from the two databases, but limited the selection to
+5 just to get an idea of what data is in the databases and what information I can query //
+
+SELECT people.show_id,
+titles.title,
+people.cast
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_people" people
+ON "titles"."show_id" = "people"."show_id";
+
+// Here, I joined the two tables netflix_titles_info and netflix_people to produce a dataset
+with the show ids and cast from netflix_people and titles from netflix_titles_info//
+
+"CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE
+type = 'Movie';
+
+// In this query I learned that single quotations are specifically used for strings in Postgre SQL //
+
+SELECT title, date_added FROM
+"CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE date_added IS NOT NULL
+ORDER BY date_added DESC;
+
+SELECT max(date(date_added))
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
+
+// These querries both resulted in the most recently added tv shows and movies added to the database
+The result was 2021-09-25 //
+
+SELECT title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY title ASC;
+
+// Query resulted in all titles in alphabetical order //
+
+SELECT director, title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" info
+ON info.show_id = people.show_id
+WHERE title = 'Bright Star';
+
+// This JOIN query resulted in finding the director of the title Bright Star. //
+
+SELECT title, release_year
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type = 'Movie'
+ORDER BY release_year ASC
+LIMIT 1;
+
+// This query resulted in finding the oldest title released from the database //
