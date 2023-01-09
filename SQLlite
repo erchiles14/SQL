@@ -1,0 +1,38 @@
+SELECT COUNT(orderid)
+FROM BIT_DB.JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID'
+;
+
+// In this query, I extracted the amount of orders from January being sure to exclude the orders without order ids. This resulted in 9681 orders in from January. //
+
+SELECT COUNT(orderid)
+FROM BIT_DB.JanSales
+WHERE Product = 'iPhone'
+AND orderid <> 'Order ID'
+AND length(orderid) = 6
+;
+
+// This query was used to find out how many of the sales from the previous were iPhone sales. //
+
+SELECT DISTINCT acctnum
+FROM customers
+INNER JOIN FebSales
+ON OrderID = order_id
+WHERE length(orderid) = 6
+AND
+orderid <> 'Order ID';
+
+// This query produced the ccount numbers that placed orders in the month of February. //
+
+SELECT DISTINCT product, price
+FROM JanSales
+ORDER BY price ASC
+LIMIT 1;
+
+// This query produced the lowest priced item sold in January. // 
+
+SELECT product, SUM(quantity)*price as revenue
+FROM JanSales
+GROUP BY product
+;
