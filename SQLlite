@@ -36,3 +36,26 @@ SELECT product, SUM(quantity)*price as revenue
 FROM JanSales
 GROUP BY product
 ;
+
+// This query was used to determine the total revenue for each product in the month of January. //
+
+SELECT Product, SUM(Quantity) AS Sold, SUM(Quantity)*price AS Revenue
+FROM FebSales
+WHERE location LIKE '548 Lincoln St%'
+GROUP BY product;
+
+// This query produced the product, number of products, and the total revenue of products sold to the location 548 Lincoln St, Seattle, WA 98101. //
+
+SELECT COUNT(DISTINCT acctnum) as Account, AVG(Quantity*price) AS Spent
+FROM FebSales
+LEFT JOIN customers
+ON "OrderID" = "order_id"
+WHERE Quantity > 2
+AND
+acctnum NOT NULL
+AND
+length(orderid) = 6
+AND
+orderid <> "Order ID";
+
+// This query was used to determine how many customers bought more than 2 products and the average spent for all customers who purchased more than 2 products. //
