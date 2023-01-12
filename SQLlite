@@ -59,3 +59,13 @@ AND
 orderid <> "Order ID";
 
 // This query was used to determine how many customers bought more than 2 products and the average spent for all customers who purchased more than 2 products. //
+
+SELECT DISTINCT Product, SUM(Quantity)
+FROM FebSales
+WHERE orderdate LIKE '02/%'
+AND location LIKE '%Los Angeles%'
+GROUP BY Product;
+
+// This query was performed to determine the products and amount of each product sold in February. //
+
+
