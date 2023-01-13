@@ -68,4 +68,8 @@ GROUP BY Product;
 
 // This query was performed to determine the products and amount of each product sold in Los Angeles in the month of February. //
 
-
+SELECT DISTINCT location, Count(orderID)
+FROM JanSales
+WHERE location LIKE '%, NY%'
+GROUP BY location
+HAVING Count(orderID) >= 3;
