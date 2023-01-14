@@ -93,9 +93,13 @@ ON "orderID" = "order_id"
 SELECT SUM(Quantity)/COUNT(acctnum)
 FROM FebSales
 LEFT JOIN customers
-ON "OrderID" = "order_id";
+ON "OrderID" = "order_id"
+WHERE orderID <> "Order ID"
+AND length(orderID) = 6
+;
 
-// This query produced the average quantity of products purchased per account in February. //
+// This query produced the average quantity of products purchased per account in February factoring out the orders that didn't have an order ID or an order ID
+   that was incorrectly inputted. //
 
 SELECT Product, SUM(Quantity*price)
 FROM JanSales
@@ -104,3 +108,5 @@ AND length(orderID) = 6
 GROUP BY Product
 ORDER BY SUM(Quantity*price) DESC
 LIMIT 1;
+
+//  The data pulled from the above query shows which product brought in the most revenue in January and the total revenue it brought in. //
