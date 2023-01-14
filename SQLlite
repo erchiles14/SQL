@@ -90,3 +90,17 @@ ON "orderID" = "order_id"
 
 // This query produced the average amount spent per account in February. //
 
+SELECT SUM(Quantity)/COUNT(acctnum)
+FROM FebSales
+LEFT JOIN customers
+ON "OrderID" = "order_id";
+
+// This query produced the average quantity of products purchased per account in February. //
+
+SELECT Product, SUM(Quantity*price)
+FROM JanSales
+WHERE orderID <> "Order ID"
+AND length(orderID) = 6
+GROUP BY Product
+ORDER BY SUM(Quantity*price) DESC
+LIMIT 1;
