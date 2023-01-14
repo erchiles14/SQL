@@ -73,3 +73,20 @@ FROM JanSales
 WHERE location LIKE '%, NY%'
 GROUP BY location
 HAVING Count(orderID) >= 3;
+
+// This query produced the locations in New York that have received a minimum of 3 orders in January along with the number of orders for each location. //
+
+SELECT Product, SUM(Quantity)
+FROM FebSales
+WHERE Product LIKE '%Headphone%'
+GROUP BY Product;
+
+// This query produced how many of each type of headphones were sold in February. //
+
+SELECT SUM(Quantity*price)/COUNT(acctnum)
+FROM FebSales
+LEFT JOIN customers
+ON "orderID" = "order_id"
+
+// This query produced the average amount spent per account in February. //
+
