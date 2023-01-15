@@ -1,0 +1,28 @@
+SELECT ROUND(AVG(tempo), 2)
+FROM SpotifyData
+
+// I ran this query to find the average tempo within the Spotify Database rounded to 2 decimal places, which resulted in 121.08. //
+
+SELECT track_name, popularity, tempo
+FROM SpotifyData
+ORDER BY popularity DESC
+LIMIT 10;
+
+// This query was used to determine whether the top 10 songs were below, above, or equal to the average of the tempo found in the top 50 songs.
+   The result was above average for all but 2 of the tracks listed in the top 10 by popularity. // 
+   
+WITH Popularity_Average AS
+(SELECT artist_name, AVG(popularity) AS Average_Popularity
+FROM Spotifydata
+GROUP by artist_name)
+SELECT artist_name, Average_Popularity,
+'Top Star' AS tag
+FROM Popularity_Average
+WHERE Average_Popularity >= 90
+ORDER BY Average_Popularity DESC;
+
+// The instructions for the previous query are as followed: Calculate the average popularity for the artists in the Spotify data table.
+   Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”
+   I also ordered them by highest popularity to lowest.//
+   
+   
