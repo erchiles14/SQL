@@ -63,6 +63,12 @@
 
 // Write a query that includes the purchased track name with each invoice line ID. //
 
+  SELECT tracks.Name, invoice_items.InvoiceLineID
+  FROM chinook.tracks
+  JOIN chinook.invoice_items
+  ON invoice_items.TrackId = tracks.TrackId
+  ;
+  
 // Write a query that includes the purchased track name AND artist name with each invoice line ID.//
 
   SELECT invoice_items.InvoiceID, tracks.Name AS Track_Name, artists.Name AS Artist_Name
