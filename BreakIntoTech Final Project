@@ -69,7 +69,7 @@
   ON invoice_items.TrackId = tracks.TrackId
   ;
   
-// Write a query that includes the purchased track name AND artist name with each invoice line ID.//
+// Write a query that includes the purchased track name AND artist name with each invoice line ID. //
 
   SELECT invoice_items.InvoiceID, tracks.Name AS Track_Name, artists.Name AS Artist_Name
   FROM chinook.invoice_items
@@ -81,6 +81,41 @@
   ON albums.ArtistID = artists.ArtistId
   ;
 
-Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
-Show the total sales made by each sales agent.
+// Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre. //
+
+  SELECT albums.Title AS Album, tracks.Name AS Track, media_types.Name AS Media, genres.Name AS Genre
+  FROM chinook.albums 
+  JOIN chinook.tracks
+  ON albums.AlbumId = tracks.AlbumID
+  JOIN chinook.media_types
+  ON tracks.MediaTypeId = media_types.MediaTypeId
+  JOIN chinook.genres
+  ON tracks.GenreId = genres.GenreId
+  ;
+
+//Show the total sales made by each sales agent.
 Which sales agent made the most dollars in sales in 2009?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
